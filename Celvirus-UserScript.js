@@ -3,7 +3,7 @@
 // @grant none
 // @run-at document-start
 // @match    *://modsfire.com/*
-// ==/userscript==
+// ==/UserScript==
 
 (function(){
 
