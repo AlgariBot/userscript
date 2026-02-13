@@ -38,7 +38,7 @@ const sites={
     rm(".links-explore-wrp");
     rm(".disc-tab");
     rm(".inf-down");
-  }
+  } 
 };
 
 const h=location.hostname;
