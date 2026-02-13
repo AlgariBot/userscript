@@ -1,10 +1,9 @@
 // ==UserScript==
-// @name Multi Site Short
-// @match *://*/*
+// @name Simple Bypass
 // @grant none
 // @run-at document-start
-// ==/UserScript==
 // @match    *://modsfire.com/*
+// ==/userscript==
 
 (function(){
 
@@ -37,7 +36,7 @@ const sites={
   "modsfire.com":()=>{
     speed();
     rm(".links-explore-wrp");
-    rm("p:nth-of-type(2)");
+    rm(".disc-tab");
     rm(".inf-down");
   }
 };
