@@ -7,9 +7,9 @@ it doesn't use bots or other requests, it runs on the client
 
 # Target Sites
 
-[modsfire](modsfire.com)
-[safelinku](safelinku.com)
-and more!!
+- [modsfire](modsfire.com)
+- [safelinku](safelinku.com)
+- and more!!
 
 # Working Sites
-- coming soon
+- coming soon -
