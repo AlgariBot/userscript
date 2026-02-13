@@ -1,55 +1,39 @@
 // ==UserScript==
-// @name         Celvirus simple Bypass
-// @namespace    http://tampermonkey.net/
-// @version      1.0
-// @match        *://*/*
-// @grant        none
-// @run-at       document-start
+// @name Multi Site Short
+// @match *://*/*
+// @grant none
+// @run-at document-start
 // ==/UserScript==
+// @match    *://modsfire.com/*
 
-(function () {
-    'use strict';
+(function(){
 
-    const remove = s =>
-        document.querySelectorAll(s).forEach(e => e.remove());
+const rm=s=>{
+  const f=()=>document.querySelectorAll(s).forEach(e=>e.remove());
+  f(); new MutationObserver(f)
+  .observe(document,{childList:1,subtree:1});
+};
 
-    const edit = (s, fn) =>
-        document.querySelectorAll(s).forEach(fn);
+const speed=()=>{
+  const st=document.createElement("style");
+  st.textContent="*,*::before,*::after{animation:none!important;transition:none!important}";
+  document.documentElement.appendChild(st);
+  const t=setTimeout,i=setInterval;
+  window.setTimeout=f=>t(f,0);
+  window.setInterval=f=>i(f,0);
+  window.requestAnimationFrame=f=>t(f,0);
+};
 
-    const speed = () => {
-        const style = document.createElement("style");
-        style.textContent = `
-            * {
-                animation-duration: 0.000001s !important;
-                animation-delay: 0s !important;
-                transition-duration: 0.000001s !important;
-                transition-delay: 0s !important;
-                scroll-behavior: auto !important;
-            }
-        `;
-        document.documentElement.appendChild(style);
+const sites={
+  "modsfire.com":()=>{
+    speed();
+    rm("##.links-explore-wrp");
+  }
+};
 
-        const t = window.setTimeout;
-        const i = window.setInterval;
+const h=location.hostname;
+for(const d in sites)
+  if(h.includes(d)) return sites[d]();
 
-        window.setTimeout = (f) => t(f, 0);
-        window.setInterval = (f) => i(f, 0);
-    };
-
-    const sites = {
-
-        "youtube.com": () => {
-          console.log("this is test")
-        },
-
-
-    };
-
-    const host = location.hostname;
-
-    for (const d in sites)
-        if (host.includes(d))
-            return sites[d
-              ]();
 
 })();
