@@ -24,10 +24,21 @@ const speed=()=>{
   window.requestAnimationFrame=f=>t(f,0);
 };
 
+const edit = (s, fn) => {
+  const run = () =>
+    document.querySelectorAll(s).forEach(fn);
+
+  run();
+  new MutationObserver(run)
+  .observe(document,{childList:true,subtree:true});
+};
+
 const sites={
   "modsfire.com":()=>{
     speed();
-    rm("#.links-explore-wrp");
+    rm(".links-explore-wrp");
+    rm("p:nth-of-type(2)");
+    rm(".inf-down");
   }
 };
 
