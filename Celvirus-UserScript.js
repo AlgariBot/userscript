@@ -27,7 +27,7 @@ const speed=()=>{
 const sites={
   "modsfire.com":()=>{
     speed();
-    rm("##.links-explore-wrp");
+    rm("#.links-explore-wrp");
   }
 };
 
